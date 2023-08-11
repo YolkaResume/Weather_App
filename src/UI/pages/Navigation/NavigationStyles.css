@@ -1,0 +1,13 @@
+.Link{
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    background-color: teal;
+    color: aliceblue;
+    text-decoration: none;
+}
+nav{
+    display: flex;
+}
