@@ -2,3 +2,11 @@
     margin: 0;
     padding: 0;
 }
+body{
+    display: flex;
+    height: 100vh;
+}
+#root{
+    display: flex;
+    flex-grow: 1;
+}

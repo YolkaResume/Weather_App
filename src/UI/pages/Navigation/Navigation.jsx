@@ -5,8 +5,10 @@ const Navigation = () => {
   return (
     <>
       <nav>
-            <Link to="CurrentWeather" className="Link">Current Weather</Link>
+            <Link to="DayliWeather" className="Link">Dayli Weather</Link>
+            
       </nav>
+      
 
       <Outlet />
     </>

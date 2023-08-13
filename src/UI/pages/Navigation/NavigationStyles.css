@@ -1,13 +1,14 @@
 .Link{
     height: 30px;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-grow: 1;
+    margin: 20px;
     background-color: teal;
     color: aliceblue;
     text-decoration: none;
 }
 nav{
+    padding-top: 80px;
+    background-color: teal;
     display: flex;
+    flex-direction: column;
 }
