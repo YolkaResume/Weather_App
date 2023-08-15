@@ -4,13 +4,13 @@ import "./index.css"
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navigation from './UI/pages/Navigation/Navigation';
-import DayliWeather from './UI/pages/CurrentWeatherPage/DayliWeather';
+import CityWeather from './UI/pages/WeatherForecastPage/CityWeather';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 <BrowserRouter>
       <Routes>
         <Route path="/" element={<Navigation />}>
-          <Route path="DayliWeather" index element={<DayliWeather />}/>
+          <Route path="CityWeather" index element={<CityWeather />}/>
         </Route>
       </Routes>
     </BrowserRouter>

@@ -5,7 +5,7 @@ const Navigation = () => {
   return (
     <>
       <nav>
-            <Link to="DayliWeather" className="Link">Dayli Weather</Link>
+            <Link to="CityWeather" className="Link">City Weather</Link>
             
       </nav>
       

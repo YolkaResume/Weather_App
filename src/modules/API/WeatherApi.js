@@ -17,5 +17,11 @@ class WeatherAPi{
         const data = await response.json();
         return data; 
     }
+    static async getWeaklyWeather(City){
+        console.log(`${baseUrl}${forecast}${jsonMode}${key}${City}${daysMode}7${forecastConditions}`)
+        const response = await fetch(`${baseUrl}${forecast}${jsonMode}${key}${City}${daysMode}7${forecastConditions}`);
+        const data = await response.json();
+        return data; 
+    }
 }
 export default WeatherAPi

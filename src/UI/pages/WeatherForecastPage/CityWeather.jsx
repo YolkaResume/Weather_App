@@ -1,17 +1,17 @@
 import React from "react";
 import { useState } from "react";
 import WeatherAPi from "../../../modules/API/WeatherApi";
-import "./DayliWeather.css";
-import DailyInfo from "../../DailyInfo/DailyInfo";
-import { EmptyDailyInfo } from "../../DailyInfo/DailyInfo";
-const CurrentWeather = () => {
+import "./CityWeather.css";
+import WeatherForecast, { EmptyWeatherForecast } from "../../Forecast/WeatherForecast";
+const CityWeather = () => {
+
   const [CurrentCity, setCity] = useState("");
-  const [Info, setInfo] = useState(<EmptyDailyInfo></EmptyDailyInfo>);
+  const [DayliInfo, setInfo] = useState(<EmptyWeatherForecast></EmptyWeatherForecast>);
 
   const search = async () => {
-    const weather = await WeatherAPi.getDayliWeather(CurrentCity, 1);
+    const weather = await WeatherAPi.getWeaklyWeather(CurrentCity);
     if (weather.current !== undefined) {
-      setInfo(<DailyInfo weather={weather}></DailyInfo>);
+      setInfo(<WeatherForecast weather={weather}></WeatherForecast>);
     } else {
       alert(`info about ${CurrentCity} not found`)
     }
@@ -35,8 +35,8 @@ const CurrentWeather = () => {
         </div>
       </div>
 
-      {Info}
+      {DayliInfo}
     </div>
   );
 };
-export default CurrentWeather;
+export default CityWeather;

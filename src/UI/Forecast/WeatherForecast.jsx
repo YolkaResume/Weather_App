@@ -1,10 +1,13 @@
 import React from "react";
-import "./DailyInfo.css";
-
-const DailyInfo = ({ weather }) => {
+import "./WeatherForecast.css";
+import LineChart from "../Charts/LineChart";
+const WeatherForecast = ({ weather }) => {
   const { wind_kph, pressure_mb } = weather.current;
-  const rainChance = weather.forecast.forecastday[0].day.daily_chance_of_rain;
-  const uvIndex = weather.current.uv;
+  const todayRainChance = weather.forecast.forecastday[0].day.daily_chance_of_rain;
+  const todayUvIndex = weather.current.uv;
+  
+
+  
 
   return (
     <div className="container">
@@ -16,24 +19,28 @@ const DailyInfo = ({ weather }) => {
         </div>
         <div>
           <div>Rain Chance</div>
-          <div>{rainChance}%</div>
+          <div>{todayRainChance}%</div>
         </div>
         <div>
           <div>UV Index</div>
-          <div>{uvIndex}</div>
+          <div>{todayUvIndex}</div>
         </div>
         <div>
           <div>Pressure</div>
           <div>{pressure_mb} mb</div>
         </div>
+
+
+
       </div>
+      
     </div>
-  );
+  );  
 };
 
-export default DailyInfo;
+export default WeatherForecast;
 
-const EmptyDailyInfo = () => {
+const EmptyWeatherForecast = () => {
   return (
     <div className="container">
       <div className="head">Today overview</div>
@@ -54,9 +61,10 @@ const EmptyDailyInfo = () => {
           <div>Pressure</div>
           <div>mb</div>
         </div>
+        
       </div>
     </div>
   );
 };
 
-export { EmptyDailyInfo };
+export { EmptyWeatherForecast };
