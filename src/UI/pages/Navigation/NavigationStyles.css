@@ -2,13 +2,13 @@
     height: 30px;
     display: flex;
     margin: 20px;
-    background-color: teal;
+    background-color: #533e57;
     color: aliceblue;
     text-decoration: none;
 }
 nav{
     padding-top: 80px;
-    background-color: teal;
+    background-color: #533e57;
     display: flex;
     flex-direction: column;
 }

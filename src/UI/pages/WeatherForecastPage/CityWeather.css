@@ -3,6 +3,7 @@
 }
 
 .weatherForm{
+    border-radius: 20px;
     width: 70vw;
     min-height: 400px;
     background-color: teal;
@@ -19,6 +20,7 @@
     flex-grow: 1;
 }
 .searcher button{
+    cursor: pointer;
     flex-grow: 1;
 }
 h2{
