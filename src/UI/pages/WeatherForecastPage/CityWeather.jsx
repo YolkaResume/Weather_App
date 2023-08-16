@@ -3,17 +3,24 @@ import WeatherAPi from "../../../modules/API/WeatherApi";
 import "./CityWeather.css";
 import WeatherForecast from "../../Forecast/WeatherForecast";
 import { EmptyWeatherForecast } from "../../Forecast/WeatherForecast";
+import Rainbars from "../../Rainbars/Rainbars";
 
 const CityWeather = () => {
   const [CurrentCity, setCity] = useState("");
   const [DayliInfo, setInfo] = useState(null);
-
+  const [weather,setWeather] = useState(null)
   const search = async () => {
-    const weather = await WeatherAPi.getWeaklyWeather(CurrentCity);
-    if (weather.current !== undefined) {
-      setInfo(<WeatherForecast weather={weather}></WeatherForecast>);
-    } else {
-      alert(`info about ${CurrentCity} not found`);
+    try {
+      const weatherData = await WeatherAPi.getWeaklyWeather(CurrentCity);
+  
+      if (weatherData !== null) {
+        setWeather(weatherData);
+        setInfo(<WeatherForecast weather={weatherData}></WeatherForecast>);
+      } else {
+        alert(`Info about ${CurrentCity} not found`);
+      }
+    } catch (error) {
+      console.error('An error occurred:', error);
     }
   };
 
@@ -24,6 +31,7 @@ const CityWeather = () => {
 
   return (
     <div className="weatherForm">
+      <main>
       <div className="dayliTitle">
         <h2>
           {currentYear} {currentMonth} {currentDay}
@@ -34,6 +42,10 @@ const CityWeather = () => {
         </div>
       </div>
       {DayliInfo ? DayliInfo : <EmptyWeatherForecast />}
+      </main>
+      <aside>{weather == null ? <div>1</div> : <Rainbars weather={weather}/>}</aside>
+      
+      
     </div>
   );
 };

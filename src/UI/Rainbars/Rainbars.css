@@ -1,0 +1,30 @@
+.Container{
+    border-radius: 20px;
+    padding: 10px;
+    background-color: #502657;
+}
+.Rainbar{
+    height: 20px;
+    margin: 5px;
+    width: 230px;
+    display: flex;
+}
+.percentFill{
+    min-width: 20px;
+    display: flex;
+    justify-content: right;
+    background-color: blue;
+    border-radius: 90px;
+}
+.pointer{
+    width: 20px;
+    border-radius: 90px;
+    background-color: wheat;
+}
+.progress{
+    border-radius: 90px;
+    margin-right: 10px;
+    background-color: rgba(128, 128, 128, 0.486);
+    display: flex;
+    width: 180px;
+}

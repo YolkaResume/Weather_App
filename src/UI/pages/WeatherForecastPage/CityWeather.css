@@ -3,8 +3,9 @@
 }
 
 .weatherForm{
+    display: flex;
     border-radius: 20px;
-    width: 70vw;
+    width: 90vw;
     min-height: 400px;
     background-color: teal;
     margin: 10px;
@@ -29,4 +30,14 @@ h2{
 }
 .dayliTitle{
     display: flex;
+}
+main{
+    padding: 10px;
+    flex-grow: 1;
+}
+aside{
+    border-radius: 14px;
+    padding: 10px;
+    background-color: #533e57;
+    margin-left: auto;
 }

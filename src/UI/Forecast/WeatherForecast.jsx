@@ -5,7 +5,7 @@ import LineChart from "../Charts/LineChart";
 const WeatherForecast = ({ weather }) => {
   const { wind_kph, pressure_mb } = weather.current;
   const todayRainChance = weather.forecast.forecastday[0].day.daily_chance_of_rain;
-  const todayUvIndex = weather.current.uv;
+  const temp_c = weather.current.temp_c;
 
   const [chartData, setChartData] = useState({
     labels: weather.forecast.forecastday.map((forecastDay) => forecastDay.date),
@@ -52,7 +52,7 @@ const WeatherForecast = ({ weather }) => {
 
   return (
     <div className="container">
-      <div className="head">Today overview</div>
+      <div className="head">Current overview</div>
       <div className="dailyInfo">
         <div>
           <div>Wind Speed</div>
@@ -63,12 +63,12 @@ const WeatherForecast = ({ weather }) => {
           <div>{todayRainChance}%</div>
         </div>
         <div>
-          <div>UV Index</div>
-          <div>{todayUvIndex}</div>
+          <div>Temperature C</div>
+          <div>{temp_c}</div>
         </div>
         <div>
           <div>Pressure</div>
-          <div>{pressure_mb} mb</div>
+          <div>{pressure_mb*0.75} mmHg</div>
         </div>
       </div>
 
