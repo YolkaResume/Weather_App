@@ -4,6 +4,9 @@ import "./CityWeather.css";
 import WeatherForecast from "../../Forecast/WeatherForecast";
 import { EmptyWeatherForecast } from "../../Forecast/WeatherForecast";
 import Rainbars from "../../Rainbars/Rainbars";
+import SunriseSunset from "../../SunriseSunset/SunriseSunset";
+import { EmptyRainbars } from "../../Rainbars/Rainbars";
+import DateTranslate from "../../../modules/DateTranslate/DateTranslate";
 
 const CityWeather = () => {
   const [CurrentCity, setCity] = useState("");
@@ -13,7 +16,7 @@ const CityWeather = () => {
     try {
       const weatherData = await WeatherAPi.getWeaklyWeather(CurrentCity);
   
-      if (weatherData !== null) {
+      if (weatherData.current !== undefined && weatherData !== null) {
         setWeather(weatherData);
         setInfo(<WeatherForecast weather={weatherData}></WeatherForecast>);
       } else {
@@ -26,7 +29,6 @@ const CityWeather = () => {
 
   const currentDate = new Date();
   const currentYear = currentDate.getFullYear();
-  const currentMonth = currentDate.getMonth() + 1;
   const currentDay = currentDate.getDate();
 
   return (
@@ -34,7 +36,7 @@ const CityWeather = () => {
       <main>
       <div className="dayliTitle">
         <h2>
-          {currentYear} {currentMonth} {currentDay}
+          {currentYear} {DateTranslate.getCurrentMonthName()} {DateTranslate.getCurrentDayName()} {currentDay}
         </h2>
         <div className="searcher">
           <input type="text" onChange={(e) => setCity(e.target.value)} placeholder="Search Location Here" />
@@ -43,7 +45,10 @@ const CityWeather = () => {
       </div>
       {DayliInfo ? DayliInfo : <EmptyWeatherForecast />}
       </main>
-      <aside>{weather == null ? <div>1</div> : <Rainbars weather={weather}/>}</aside>
+      <aside>
+        {weather == null ? <EmptyRainbars/>:<Rainbars weather={weather}/>}
+        {<SunriseSunset weather={weather}/>}
+        </aside>
       
       
     </div>
